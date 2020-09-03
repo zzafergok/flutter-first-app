@@ -17,17 +17,14 @@ void main() {
         },
         child: Icon(
           Icons.bookmark_border,
-          size: 32.0,
+          size: 24.0,
           color: Colors.white,
         ),
       ),
-      body: Container(
-        color: Colors.lightBlue,
-        child: Center(
-          child: Text(
-            "Flutter Mükemmelmiş",
-            textAlign: TextAlign.center,
-          ),
+      body: Center(
+        child: Container(
+          color: Colors.brown,
+          child: Text(" Flutter en iyisi ", style: TextStyle(fontSize: 18.0)),
         ),
       ),
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
