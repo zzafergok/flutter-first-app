@@ -22,17 +22,19 @@ void main() {
         ),
       ),
       body: Container(
-          alignment: Alignment.center,
           color: Colors.brown,
-          child: Text(
-              " Flutter en iyisi Flutter en iyisi Flutter en iyisi Flutter en iyisi  ",
-              style: TextStyle(fontSize: 18.0),
-              textAlign: TextAlign.center,
-          ),
-          //constraints: BoxConstraints.expand(height: 400, width: 400),
-        //margin: EdgeInsets.only(top: 3, left: 2, right: 2, bottom: 3),
-        margin: EdgeInsets.symmetric(horizontal: 4, vertical: 30),
-        padding: EdgeInsets.all(50),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget> [
+            Icon(Icons.ac_unit, size: 24),
+            Icon(Icons.accessibility, size: 24),
+            Icon(Icons.accessible, size: 24),
+            Icon(Icons.ac_unit, size: 24),
+            Icon(Icons.accessibility, size: 24),
+            Icon(Icons.ac_unit, size: 24),
+            Icon(Icons.accessibility, size: 24)
+          ],
+        ),
         ),
 
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
