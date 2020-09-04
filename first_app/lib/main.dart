@@ -22,20 +22,53 @@ void main() {
         ),
       ),
       body: Container(
-          color: Colors.brown,
+        color: Colors.brown,
         child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget> [
-            Icon(Icons.ac_unit, size: 24),
-            Icon(Icons.accessibility, size: 24),
-            Icon(Icons.accessible, size: 24),
-            Icon(Icons.ac_unit, size: 24),
-            Icon(Icons.accessibility, size: 24),
-            Icon(Icons.ac_unit, size: 24),
-            Icon(Icons.accessibility, size: 24)
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //spaceEvenly => her child'ın arası eşit miktarsa aralık. Aynı zamanda başlangıç ve bitiş boşluklarıda eşit.
+          //spaceBetween => başlangıç ve bitiş noktalarını ekrana sıfırlar child'lar arası boşluğu eşitler.
+          //spaceAround => başlangıç ve bitiş noktalarının boşluk size'ı neyse child'lar arası boşluk 2 katı olacak şekilde ayarlar.
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
+                color: Colors.red.shade200,
+              ),
+              flex: 2,
+            ),
+            Expanded(
+              //Expanded verildiğinde ilgili child'ın boyutunu flex ile ayarlayabilmek için kullanılır.
+              child: Container(
+                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
+                color: Colors.blue.shade200,
+              ),
+              flex: 5,
+            ),
+            Expanded(
+              child: Container(
+                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
+                color: Colors.green.shade200,
+              ),
+              flex: 2,
+            ),
+            Expanded(
+              child: Container(
+                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
+                color: Colors.orange.shade200,
+              ),
+              flex: 5,
+            ),
+            Expanded(
+              child: Container(
+                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
+                color: Colors.yellow.shade200,
+              ),
+              flex: 5,
+            ),
           ],
         ),
-        ),
+      ),
 
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     ),
