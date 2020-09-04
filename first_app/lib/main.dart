@@ -1,76 +1,131 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(primarySwatch: Colors.orange, accentColor: Colors.green),
-    home: new Scaffold(
+    home: Scaffold(
       appBar: AppBar(
         title: Text(
           "Flutter Dersleri",
-          style: TextStyle(fontSize: 18.0, color: Colors.white),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          debugPrint("FAB tıklandı");
-        },
-        child: Icon(
-          Icons.bookmark_border,
-          size: 24.0,
-          color: Colors.white,
-        ),
-      ),
-      body: Container(
-        color: Colors.brown,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //spaceEvenly => her child'ın arası eşit miktarsa aralık. Aynı zamanda başlangıç ve bitiş boşluklarıda eşit.
-          //spaceBetween => başlangıç ve bitiş noktalarını ekrana sıfırlar child'lar arası boşluğu eşitler.
-          //spaceAround => başlangıç ve bitiş noktalarının boşluk size'ı neyse child'lar arası boşluk 2 katı olacak şekilde ayarlar.
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
-                color: Colors.red.shade200,
-              ),
-              flex: 2,
-            ),
-            Expanded(
-              //Expanded verildiğinde ilgili child'ın boyutunu flex ile ayarlayabilmek için kullanılır.
-              child: Container(
-                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
-                color: Colors.blue.shade200,
-              ),
-              flex: 5,
-            ),
-            Expanded(
-              child: Container(
-                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
-                color: Colors.green.shade200,
-              ),
-              flex: 2,
-            ),
-            Expanded(
-              child: Container(
-                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
-                color: Colors.orange.shade200,
-              ),
-              flex: 5,
-            ),
-            Expanded(
-              child: Container(
-                child: Icon(Icons.ac_unit, size: 36, color: Colors.white),
-                color: Colors.yellow.shade200,
-              ),
-              flex: 5,
-            ),
-          ],
+          style: TextStyle(fontSize: 24, color: Colors.white),
         ),
       ),
 
-      //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
+      // deneme örneği
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.all(2),
+                color: Colors.deepOrangeAccent,
+                child: Text(
+                  "D",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.all(2),
+                color: Colors.deepOrangeAccent,
+                child: Text(
+                  "A",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.all(2),
+                color: Colors.deepOrangeAccent,
+                child: Text(
+                  "R",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.all(2),
+                color: Colors.deepOrangeAccent,
+                child: Text(
+                  "T",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            margin: EdgeInsets.all(2),
+            color: Colors.deepOrangeAccent,
+            child: Text(
+              "E",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            margin: EdgeInsets.all(2),
+            color: Colors.deepOrangeAccent,
+            child: Text(
+              "R",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            margin: EdgeInsets.all(2),
+            color: Colors.deepOrangeAccent,
+            child: Text(
+              "S",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        Container(
+          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.all(2),
+          color: Colors.deepOrangeAccent,
+          child: Text(
+            "L",
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
+          Container(
+            padding: EdgeInsets.all(20),
+            margin: EdgeInsets.all(2),
+            color: Colors.deepOrangeAccent,
+            child: Text(
+              "E",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            margin: EdgeInsets.all(2),
+            color: Colors.deepOrangeAccent,
+            child: Text(
+              "R",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(22),
+            margin: EdgeInsets.all(2),
+            color: Colors.deepOrangeAccent,
+            child: Text(
+              " İ",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        ],
+      ),
     ),
   ));
 }
