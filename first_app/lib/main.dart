@@ -15,117 +15,103 @@ void main() {
 
       // deneme örneği
       body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Text(
+            "Resim ve Buton Türleri",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold
+            ),
+          ),
           Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.all(2),
-                color: Colors.deepOrangeAccent,
-                child: Text(
-                  "D",
-                  style: TextStyle(fontSize: 20),
+                width: 100,
+                height: 100,
+                color: Colors.red.shade300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Image.asset("assets/images/cat.jpg", width: 75, height: 75),
+                    Text("Zafer"),
+                  ],
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.all(2),
-                color: Colors.deepOrangeAccent,
-                child: Text(
-                  "A",
-                  style: TextStyle(fontSize: 20),
+                width: 100,
+                height: 100,
+                color: Colors.red.shade300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text("Zafer"),
+                    Text("Zafer"),
+                  ],
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.all(2),
-                color: Colors.deepOrangeAccent,
-                child: Text(
-                  "R",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.all(2),
-                color: Colors.deepOrangeAccent,
-                child: Text(
-                  "T",
-                  style: TextStyle(fontSize: 20),
+                width: 100,
+                height: 100,
+                color: Colors.red.shade300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text("Zafer"),
+                    Text("Zafer"),
+                  ],
                 ),
               ),
             ],
           ),
-          Container(
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(2),
-            color: Colors.deepOrangeAccent,
-            child: Text(
-              "E",
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(2),
-            color: Colors.deepOrangeAccent,
-            child: Text(
-              "R",
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(2),
-            color: Colors.deepOrangeAccent,
-            child: Text(
-              "S",
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
-        Container(
-          padding: EdgeInsets.all(20),
-          margin: EdgeInsets.all(2),
-          color: Colors.deepOrangeAccent,
-          child: Text(
-            "L",
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
-          Container(
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(2),
-            color: Colors.deepOrangeAccent,
-            child: Text(
-              "E",
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(2),
-            color: Colors.deepOrangeAccent,
-            child: Text(
-              "R",
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(24.75),
-            margin: EdgeInsets.all(2),
-            color: Colors.deepOrangeAccent,
-            child: Text(
-              "İ",
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.red.shade300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text("Zafer"),
+                    Text("Zafer"),
+                  ],
+                ),
+                margin: EdgeInsets.only(top:15),
+
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.red.shade300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text("Zafer"),
+                    Text("Zafer"),
+                  ],
+                ),
+                margin: EdgeInsets.only(top:15),
+
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.red.shade300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text("Zafer"),
+                    Text("Zafer"),
+                  ],
+                ),
+                margin: EdgeInsets.only(top:15),
+              ),
+            ],
+          )
         ],
-      ),
+      )
     ),
   ));
 }
