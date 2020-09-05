@@ -81,8 +81,46 @@ void main() {
                         children: <Widget>[
                           FadeInImage.assetNetwork(
                               placeholder: "assets/images/loading.gif",
-                              image: 'https://picsum.photos/250?image=9', height: 75),
+                              image: 'https://picsum.photos/250?image=9',
+                              height: 75),
                           Text("FadeInImage"),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: Colors.red.shade300,
+                      height: 150,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          FlutterLogo(
+                            size: 60,
+                            colors: Colors.orange,
+                            style: FlutterLogoStyle.horizontal,
+                            textColor: Colors.black,
+                          ),
+                          Text("Flutter logo"),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: Colors.red.shade300,
+                      height: 150,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          //Placeholder(color: Colors.blueGrey, fallbackHeight: 50, fallbackWidth: 50,),
+                          Expanded(
+                            child: Placeholder(
+                              color: Colors.blueAccent.shade700,
+                              strokeWidth: 2,
+                            ),
+                          ),
+                          Text("Placeholder"),
                         ],
                       ),
                     ),
