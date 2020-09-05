@@ -116,11 +116,11 @@ void main() {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(22),
+            padding: EdgeInsets.all(24.75),
             margin: EdgeInsets.all(2),
             color: Colors.deepOrangeAccent,
             child: Text(
-              " İ",
+              "İ",
               style: TextStyle(fontSize: 20),
             ),
           ),
