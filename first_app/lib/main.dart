@@ -23,87 +23,88 @@ void main() {
               fontWeight: FontWeight.bold
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.red.shade300,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Image.asset("assets/images/cat.jpg", width: 75, height: 75),
-                    Text("Zafer"),
-                  ],
+          IntrinsicHeight(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    color: Colors.red.shade300,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Image.network('https://picsum.photos/250?image=9'),
+                        Text("Merhaba"),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.red.shade300,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text("Zafer"),
-                    Text("Zafer"),
-                  ],
+                Expanded(
+                  child: Container(
+                    color: Colors.red.shade300,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Image.asset("assets/images/cat.jpg"),
+                        Text("Merhaba"),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.red.shade300,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text("Zafer"),
-                    Text("Zafer"),
-                  ],
+                Expanded(
+                  child: Container(
+                    color: Colors.red.shade300,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        CircleAvatar(
+                          backgroundImage: NetworkImage('https://emrealtunbilek.com/wp-content/uploads/2016/10/apple-icon-72x72.png'),
+                          backgroundColor: Colors.yellow.shade400,
+                          radius: 50,
+                          foregroundColor: Colors.green,
+                        ),
+                        Text("Merhaba"),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Container(
-                width: 100,
-                height: 100,
                 color: Colors.red.shade300,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text("Zafer"),
-                    Text("Zafer"),
+                    Image.asset("assets/images/cat.jpg", height: 75),
+                    Text("Merhaba"),
                   ],
                 ),
                 margin: EdgeInsets.only(top:15),
 
               ),
               Container(
-                width: 100,
-                height: 100,
                 color: Colors.red.shade300,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text("Zafer"),
-                    Text("Zafer"),
+                    Image.asset("assets/images/cat.jpg", height: 75),
+                    Text("Merhaba"),
                   ],
                 ),
                 margin: EdgeInsets.only(top:15),
 
               ),
               Container(
-                width: 100,
-                height: 100,
                 color: Colors.red.shade300,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text("Zafer"),
-                    Text("Zafer"),
+                    Image.asset("assets/images/cat.jpg", height: 75),
+                    Text("Merhaba"),
                   ],
                 ),
                 margin: EdgeInsets.only(top:15),
