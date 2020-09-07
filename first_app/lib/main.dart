@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/liste_dersleri.dart';
+import 'ui/etkin_liste_ornek.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -15,7 +15,7 @@ void main() {
           ),
         ),
       ),
-      body: ListeDersleri(),
+      body: EtkinListeOrnek(),
     ),
   ));
 }
