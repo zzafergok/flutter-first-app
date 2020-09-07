@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/resim_ve_button_turleri.dart';
+import 'resim_ve_button_turleri.dart';
 
 
 class MyApp extends StatelessWidget {
