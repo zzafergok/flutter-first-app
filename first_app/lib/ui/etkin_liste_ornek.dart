@@ -30,27 +30,14 @@ class EtkinListeOrnek extends StatelessWidget {
             title: Text(tumOgrenciler[index]._isim),
             subtitle: Text(tumOgrenciler[index]._aciklama),
             trailing: Icon(Icons.add),
-            onTap: (){
+            onTap: () {
               debugPrint("Seçilen eleman $index");
-              Fluttertoast.showToast(
-                  msg: "Seçilen eleman $index",
-                  toastLength: Toast.LENGTH_LONG,
-                  gravity: ToastGravity.CENTER,
-                  timeInSecForIos: 1,
-                  backgroundColor: Colors.red,
-                  textColor: Colors.white
-              );
+              toastMesajGoster(index, false);
+              alertDialogGoster(context, index);
             },
-            onLongPress: (){
+            onLongPress: () {
               debugPrint("Uzun basılan eleman $index");
-              Fluttertoast.showToast(
-                  msg: "Uzun basılan eleman $index",
-                  toastLength: Toast.LENGTH_LONG,
-                  gravity: ToastGravity.BOTTOM,
-                  timeInSecForIos: 1,
-                  backgroundColor: Colors.red,
-                  textColor: Colors.white
-              );
+              toastMesajGoster(index, true);
             },
           ),
         );
@@ -64,6 +51,58 @@ class EtkinListeOrnek extends StatelessWidget {
         (index) => Ogrenci("Ogrenci $index Adı", "Ogrenci $index aciklamasi",
             index % 2 == 0 ? true : false));
   }
+
+  void toastMesajGoster(int index, bool uzunBasim) {
+    Fluttertoast.showToast(
+        msg: uzunBasim
+            ? "Uzun Basıldı : " + tumOgrenciler[index].toString()
+            : "Tek Tıklama : " + tumOgrenciler[index].toString(),
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIos: 2,
+        backgroundColor: Colors.red,
+        textColor: Colors.white);
+  }
+
+  void alertDialogGoster(BuildContext ctx, int index) {
+    showDialog(
+        context: ctx,
+        barrierDismissible: false,
+        builder: (ctx) {
+          return AlertDialog(
+            title: Text("Alert Dialog"),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: [
+                  Text("Seçilen öğrenci adı ${tumOgrenciler[index]._isim}"),
+                  Text("Seçilen öğrenci açıklaması ${tumOgrenciler[index]._aciklama}"),
+                ],
+              ),
+            ),
+            actions: [
+              ButtonTheme.bar(
+                child: ButtonBar(
+                  children: [
+                    FlatButton(
+                      child: Text("Tamam"),
+                      onPressed: () {
+                        Navigator.of(ctx).pop();
+                      },
+                    ),
+                    FlatButton(
+                      child: Text("Kapat"),
+                      //color: Colors.purple,
+                      onPressed: () {
+                        Navigator.of(ctx).pop();
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        });
+  }
 }
 
 class Ogrenci {
@@ -71,4 +110,9 @@ class Ogrenci {
   bool _cinsiyet;
 
   Ogrenci(this._isim, this._aciklama, this._cinsiyet);
+
+  @override
+  String toString() {
+    return "Seçilen öğrenci adı $_isim Açıklaması $_aciklama";
+  }
 }
