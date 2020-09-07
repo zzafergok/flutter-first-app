@@ -128,7 +128,43 @@ void main() {
                 ],
               ),
             ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  RaisedButton(
+                    child: Text("zafer gök"),
+                    color: Colors.red,
+                    onPressed: () => debugPrint("Fat arrowlu button çalıştı"),
+                  ),
+                  RaisedButton(
+                    child: Text("Flutter ve Dart Dersleri"),
+                    onPressed: () {
+                      uzunMethod();
+                    },
+                    elevation: 12,
+                    textColor: Colors.orange,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.add_circle_outline, size: 32),
+                    onPressed: () {},
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Flat Button",
+                      style: TextStyle(fontSize: 32),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         )),
   ));
+}
+
+void uzunMethod() {
+  debugPrint("Uzun Method");
 }
