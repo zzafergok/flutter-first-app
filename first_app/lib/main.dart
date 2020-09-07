@@ -14,25 +14,47 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       title: "MaterialApp Title",
-      home: MyHomePage(title: "My Home Page",),
+      home: MyHomePage(
+        title: "My Home Page",
+      ),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   final String title;
+  int sayac = 0;
 
-  MyHomePage({this.title});
+  MyHomePage({this.title}) {
+    debugPrint("MyHomePage Stateful Widget constuctor");
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    debugPrint("MyHomePage Stateful State Widget constuctor");
+    return MyHomePageState();
+  }
+}
+
+class MyHomePageState extends State<MyHomePage> {
+  MyHomePageState() {
+    debugPrint("MyHomePageState State Widget constuctor");
+  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    debugPrint("MyHomePageState Build Widget constuctor");
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(widget.title),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => debugPrint("butona basılıyor"),
+        onPressed: () {
+          setState(() {
+            sayacDegeriniArtir();
+          });
+        },
         child: Icon(Icons.announcement),
       ),
       body: Center(
@@ -41,12 +63,17 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             Text("Butona Basma Sayısı  :"),
             Text(
-              "5",
+              "${widget.sayac}",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ],
         ),
       ),
     );
+  }
+
+  void sayacDegeriniArtir() {
+    widget.sayac++;
+    debugPrint("Sayac Değeri :  ${widget.sayac}");
   }
 }
