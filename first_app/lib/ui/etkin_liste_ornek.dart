@@ -74,8 +74,8 @@ class EtkinListeOrnek extends StatelessWidget {
             content: SingleChildScrollView(
               child: ListBody(
                 children: [
-                  Text("Seçilen öğrenci adı ${tumOgrenciler[index]._isim}"),
-                  Text("Seçilen öğrenci açıklaması ${tumOgrenciler[index]._aciklama}"),
+                  Text("${tumOgrenciler[index]._isim}"),
+                  Text("${tumOgrenciler[index]._aciklama}"),
                 ],
               ),
             ),
