@@ -7,44 +7,50 @@ class GridViewOrnek extends StatelessWidget {
       gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
       itemBuilder: (BuildContext context, int index) {
-        return Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            border: Border.all(
-                color: Colors.deepPurple, width: 3, style: BorderStyle.solid),
-            /** border: Border(top: BorderSide(color: Colors.purple,width: 5.0,style: BorderStyle.solid)
-                bottom: BorderSide(color: Colors.red,width: 10.0)) */
-            /**borderRadius: BorderRadius.all(
-              Radius.circular(20.0),
-            ),*/
-            boxShadow: [
-              BoxShadow(
-                color: Colors.red,
-                offset: Offset(4.0, 8.0),
-                blurRadius: 15.0,
+        return GestureDetector(
+          child: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: Colors.deepPurple, width: 3, style: BorderStyle.solid),
+              /** border: Border(top: BorderSide(color: Colors.purple,width: 5.0,style: BorderStyle.solid)
+                  bottom: BorderSide(color: Colors.red,width: 10.0)) */
+              /**borderRadius: BorderRadius.all(
+                  Radius.circular(20.0),
+                  ),*/
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red,
+                  offset: Offset(4.0, 8.0),
+                  blurRadius: 15.0,
+                ),
+              ],
+              shape: BoxShape.circle,
+              color: Colors.orange[100 * ((index + 1) % 8)],
+              gradient: LinearGradient(
+                colors: [Colors.orange, Colors.blue],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
-            ],
-            shape: BoxShape.circle,
-            color: Colors.orange[100 * ((index + 1) % 8)],
-            gradient: LinearGradient(
-              colors: [Colors.orange, Colors.blue],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+              /**image: DecorationImage(
+                  image: AssetImage("assets/images/cat.jpg"),
+                  fit: BoxFit.contain,
+                  alignment: Alignment.topCenter),*/
             ),
-            /**image: DecorationImage(
-                image: AssetImage("assets/images/cat.jpg"),
-                fit: BoxFit.contain,
-                alignment: Alignment.topCenter),*/
-          ),
-          margin: EdgeInsets.all(5),
-          child: Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              "Merhaba Flutter $index",
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 11),
+            margin: EdgeInsets.all(5),
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                "Merhaba Flutter $index",
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.black, fontSize: 11),
+              ),
             ),
           ),
+          onTap: () => debugPrint("Merhaba Flutter $index Tıklanıldı"),
+          onDoubleTap: () => debugPrint("Merhaba Flutter $index Çift Tıklanıldı"),
+          onLongPress: () => debugPrint("Merhaba Flutter $index Uzun Tıklanıldı"),
+          onHorizontalDragStart: (e) => debugPrint("Merhaba Flutter $index Uzun Tıklanıldı $e"),
         );
       },
     );
