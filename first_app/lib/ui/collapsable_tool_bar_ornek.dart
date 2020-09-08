@@ -26,6 +26,34 @@ class CollasableToolBarOrnek extends StatelessWidget {
             ),
           ),
         ),
+
+        //sabit elemanlarla bir satırda kaç eleman olacağını söylediğimiz grid türü
+        SliverPadding(
+          padding: EdgeInsets.all(6),
+          sliver: SliverGrid(
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            delegate: SliverChildListDelegate(sabitListeElemanlari()),
+          ),
+        ),
+
+        //dinamik (builder ile üretilen) elemanlarla bir satırda kaç eleman olacağını söylediğimiz grid türü
+        SliverGrid(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          delegate: SliverChildBuilderDelegate(
+              _dinamikElemanlariUretenFonksiyon,
+              childCount: 6),
+        ),
+
+        //dinamik (builder ile üretilen) elemanlarla bir satırdaki bir elemanın max genişliğini söylediğimiz grid türü
+        SliverGrid(
+          gridDelegate:
+              SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 100),
+          delegate: SliverChildBuilderDelegate(
+              _dinamikElemanlariUretenFonksiyon,
+              childCount: 6),
+        ),
         SliverPadding(
           padding: EdgeInsets.all(3),
           sliver: SliverList(
@@ -52,7 +80,8 @@ class CollasableToolBarOrnek extends StatelessWidget {
         SliverPadding(
           padding: EdgeInsets.all(10),
           sliver: SliverFixedExtentList(
-            delegate: SliverChildBuilderDelegate(_dinamikElemanlariUretenFonksiyon,
+            delegate: SliverChildBuilderDelegate(
+                _dinamikElemanlariUretenFonksiyon,
                 childCount: 6),
             itemExtent: 50,
           ),
