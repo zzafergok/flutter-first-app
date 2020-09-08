@@ -20,6 +20,12 @@
       <excludeFolder url="file://$MODULE_DIR$/first_app/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/first_app/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/first_app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/first_app/ios/.symlinks/plugins/fluttertoast/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/first_app/ios/.symlinks/plugins/fluttertoast/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/first_app/ios/.symlinks/plugins/fluttertoast/build" />
+      <excludeFolder url="file://$MODULE_DIR$/first_app/ios/.symlinks/plugins/fluttertoast/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/first_app/ios/.symlinks/plugins/fluttertoast/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/first_app/ios/.symlinks/plugins/fluttertoast/example/build" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 30 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
