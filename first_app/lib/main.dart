@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/grid_view_kullanimi.dart';
+import 'ui/collapsable_tool_bar_ornek.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -15,7 +15,7 @@ void main() {
           ),
         ),
       ),
-      body: GridViewOrnek(),
+      body: CollasableToolBarOrnek(),
     ),
   ));
 }
