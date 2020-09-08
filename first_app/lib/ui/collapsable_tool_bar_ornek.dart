@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'dart:math' as matematik;
 
 class CollasableToolBarOrnek extends StatelessWidget {
   @override
@@ -8,7 +8,7 @@ class CollasableToolBarOrnek extends StatelessWidget {
       slivers: [
         SliverAppBar(
           backgroundColor: Colors.green,
-          expandedHeight: 200,
+          expandedHeight: 400,
           //sayfada aşağıya ineken toolbar kayboluyor yavaş yavaş. false iken tollbar en üste
           // çıkmadığın takdirde gözümüyor. true iken ise en ufa yukarı hareketinizde yavaş yavaş
           // belirginleşiyor ve kendisini gösteriyor
@@ -26,9 +26,35 @@ class CollasableToolBarOrnek extends StatelessWidget {
             ),
           ),
         ),
-        SliverList(
-          delegate: SliverChildListDelegate(
-            sabitListeElemanlari(),
+        SliverPadding(
+          padding: EdgeInsets.all(3),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
+              sabitListeElemanlari(),
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.all(5),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+                _dinamikElemanlariUretenFonksiyon,
+                childCount: 6),
+          ),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.all(8),
+          sliver: SliverFixedExtentList(
+            delegate: SliverChildListDelegate(sabitListeElemanlari()),
+            itemExtent: 250,
+          ),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.all(10),
+          sliver: SliverFixedExtentList(
+            delegate: SliverChildBuilderDelegate(_dinamikElemanlariUretenFonksiyon,
+                childCount: 6),
+            itemExtent: 50,
           ),
         ),
       ],
@@ -109,30 +135,28 @@ class CollasableToolBarOrnek extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
       ),
-      Container(
-        height: 100,
-        color: Colors.purple,
-        alignment: Alignment.center,
-        child: Text(
-          "Sabit Liste Elemanları 6",
-          style: TextStyle(
-            fontSize: 18,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-      Container(
-        height: 100,
-        color: Colors.purple,
-        alignment: Alignment.center,
-        child: Text(
-          "Sabit Liste Elemanları 6",
-          style: TextStyle(
-            fontSize: 18,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
     ];
+  }
+
+  Widget _dinamikElemanlariUretenFonksiyon(BuildContext context, int index) {
+    return Container(
+        height: 100,
+        color: rastgelerenkUret(),
+        alignment: Alignment.center,
+        child: Text(
+          "Dinamik Liste Elemanları ${index + 1}",
+          style: TextStyle(
+            fontSize: 18,
+          ),
+          textAlign: TextAlign.center,
+        ));
+  }
+
+  Color rastgelerenkUret() {
+    return Color.fromARGB(
+        matematik.Random().nextInt(255),
+        matematik.Random().nextInt(255),
+        matematik.Random().nextInt(255),
+        matematik.Random().nextInt(255));
   }
 }
