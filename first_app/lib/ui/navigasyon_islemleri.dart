@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NavigasyonIslemleri extends StatelessWidget {
+  String baslik = "B Sayfası";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,31 @@ class NavigasyonIslemleri extends StatelessWidget {
                   ),
                 );
               },
-            )
+            ),
+            RaisedButton(
+              child: Text("B Sayfası"),
+              color: Colors.grey,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BSayfasi(baslik),
+                  ),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text("C Sayfasına Git ve Geri Gel"),
+              color: Colors.redAccent,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CSayfasi(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -34,6 +60,8 @@ class NavigasyonIslemleri extends StatelessWidget {
 }
 
 class ASayfasi extends StatelessWidget {
+  String baslik = "B Sayfası";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +82,7 @@ class ASayfasi extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => BSayfasi(),
+                    builder: (context) => BSayfasi(baslik),
                   ),
                 );
               },
@@ -67,12 +95,16 @@ class ASayfasi extends StatelessWidget {
 }
 
 class BSayfasi extends StatelessWidget {
+  String GelenVeri;
+
+  BSayfasi(this.GelenVeri);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "B Sayfası",
+          GelenVeri,
           style: TextStyle(color: Colors.orange, fontSize: 24),
         ),
       ),
@@ -81,7 +113,7 @@ class BSayfasi extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RaisedButton(
-              child: Text("B Sayfası"),
+              child: Text(GelenVeri),
               color: Colors.green,
               onPressed: () {
                 Navigator.push(
@@ -92,6 +124,48 @@ class BSayfasi extends StatelessWidget {
                 );
               },
             )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CSayfasi extends StatelessWidget {
+  String baslik = "B Sayfası";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "C Sayfası",
+          style: TextStyle(color: Colors.black, fontSize: 24),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RaisedButton(
+              child: Text("Geri Dön"),
+              color: Colors.yellow,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            RaisedButton(
+              child: Text("A Sayfasına Git"),
+              color: Colors.yellow,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ASayfasi(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
