@@ -95,10 +95,71 @@ class NavigasyonIslemleri extends StatelessWidget {
                 );
               },
             ),
+            RaisedButton(
+              child: Text("Liste sayfasına Gidelim"),
+              color: Colors.blueGrey,
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  "/listeSayfasi",
+                );
+              },
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class ListeSayfasi extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Liste Sayfası",
+          style: TextStyle(color: Colors.black, fontSize: 24),
+        ),
+      ),
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, "/detay/$index");
+            },
+            child: Center(
+                child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Liste elemanı $index"),
+            )),
+          );
+        },
+        itemCount: 30,
+      ),
+    );
+  }
+}
+
+class ListeDetay extends StatelessWidget {
+  int tiklananIndex = 0;
+
+  ListeDetay(this.tiklananIndex);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Liste Detay Sayfası",
+            style: TextStyle(color: Colors.black, fontSize: 24),
+          ),
+        ),
+        body: Center(
+            child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Liste elemanı $tiklananIndex tiklanildi"),
+        )));
   }
 }
 
@@ -122,7 +183,7 @@ class ASayfasi extends StatelessWidget {
               child: Text("A Sayfası"),
               color: Colors.yellow,
               onPressed: () {
-                Navigator.pushNamed(context,"/BPage");
+                Navigator.pushNamed(context, "/BPage");
               },
             )
           ],
@@ -155,7 +216,7 @@ class BSayfasi extends StatelessWidget {
               child: Text("B Sayfasi"),
               color: Colors.green,
               onPressed: () {
-                Navigator.pushNamed(context,"/CPage");
+                Navigator.pushNamed(context, "/CPage");
               },
             )
           ],
@@ -192,7 +253,7 @@ class CSayfasi extends StatelessWidget {
               child: Text("A Sayfasına Git"),
               color: Colors.yellow,
               onPressed: () {
-                Navigator.pushNamed(context,"/DPage");
+                Navigator.pushNamed(context, "/DPage");
               },
             ),
           ],
@@ -332,7 +393,8 @@ class GSayfasi extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => NavigasyonIslemleri()),
+                  MaterialPageRoute(
+                      builder: (context) => NavigasyonIslemleri()),
                 );
               },
             )
@@ -342,5 +404,3 @@ class GSayfasi extends StatelessWidget {
     );
   }
 }
-
-

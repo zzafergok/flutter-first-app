@@ -14,7 +14,17 @@ void main() {
       "/GPage": (context) => GSayfasi(),
       "CPage/DPage": (context) => DSayfasi(),
       "/CPage/DPage/EPage": (context) => ESayfasi(),
+      "/listeSayfasi": (context) => ListeSayfasi(),
     },
+
+    onGenerateRoute: (RouteSettings settings){
+      List<String> pathElemanlari = settings.name.split("/");
+
+      if(pathElemanlari[1] == 'detay'){
+        return MaterialPageRoute(builder: (context) => ListeDetay(int.parse(pathElemanlari[2]))); // /detay/$index
+      }
+    },
+
     //hatalı rota varsa daha önceden belirlediğiniz bir rotaya atama yapılan yapı
     onUnknownRoute: (RouteSettings settings) =>
         MaterialPageRoute(builder: (context) => NavigasyonIslemleri()),
