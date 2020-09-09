@@ -52,6 +52,19 @@ class NavigasyonIslemleri extends StatelessWidget {
                 );
               },
             ),
+            RaisedButton(
+              child: Text("Geri Dön ve Veri Gönder"),
+              color: Colors.purple,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DSayfasi()),
+                ).then((popOlayindanSonraGelenSati) {
+                  debugPrint(
+                      "Pop İşleminden Gelen Değer $popOlayindanSonraGelenSati");
+                });
+              },
+            ),
           ],
         ),
       ),
@@ -167,6 +180,48 @@ class CSayfasi extends StatelessWidget {
               },
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class DSayfasi extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () {
+        debugPrint("onwill pop çalıştı");
+        //aşağıdaki işlemde ise geri döndürme işlemi yapılır fakat işlemin false olarak yapıldığını da bilmek lazım
+        //yani bir silme ya da ekleme işlemi yapıyorsa kullanıcı geri dönerse işlemin iptalini sağlamış olur
+        Navigator.pop(context, false);
+        //aşağıdaki değer false olursa geri döndürme işlemini başka bir fonksiyona atamış oluruz
+        // eğer onun için fonksiyon yazdıysak
+        return Future.value(false);
+        //yukarıdaki pop olatında false iken value'yu true yaparsa program siyah ekran verir
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "D Sayfası",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RaisedButton(
+                child: Text("D Sayfası"),
+                color: Colors.yellow,
+                onPressed: () {
+                  Navigator.pop(context, true);
+                  //true demek ürün silindi
+                  //false ürün silinmedi veya kullanıcı vazgeçti
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
