@@ -214,7 +214,7 @@ class DSayfasi extends StatelessWidget {
         //aşağıdaki değer false olursa geri döndürme işlemini başka bir fonksiyona atamış oluruz
         // eğer onun için fonksiyon yazdıysak
         return Future.value(false);
-        //yukarıdaki pop olatında false iken value'yu true yaparsa program siyah ekran verir
+        //yukarıdaki pop altında false iken value'yu true yaparsa program siyah ekran verir
       },
       child: Scaffold(
         appBar: AppBar(
