@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NavigasyonIslemleri extends StatelessWidget {
-  String baslik = "B Sayfası";
+  //String baslik = "B Sayfası";
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class NavigasyonIslemleri extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => BSayfasi(baslik),
+                    builder: (context) => BSayfasi(),
                   ),
                 );
               },
@@ -56,13 +56,43 @@ class NavigasyonIslemleri extends StatelessWidget {
               child: Text("Geri Dön ve Veri Gönder"),
               color: Colors.purple,
               onPressed: () {
-                Navigator.push(
+                Navigator.push<bool>(
                   context,
                   MaterialPageRoute(builder: (context) => DSayfasi()),
                 ).then((popOlayindanSonraGelenSati) {
                   debugPrint(
                       "Pop İşleminden Gelen Değer $popOlayindanSonraGelenSati");
                 });
+              },
+            ),
+            RaisedButton(
+              child: Text("Geri Dön ve Geri Gelme"),
+              color: Colors.blueGrey,
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => ESayfasi()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text("Geri Dön ve Geri Gelme2"),
+              color: Colors.blueGrey,
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => FSayfasi()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text("Geri Dön ve Geri Gelme3"),
+              color: Colors.blueGrey,
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => GSayfasi()),
+                );
               },
             ),
           ],
@@ -73,7 +103,7 @@ class NavigasyonIslemleri extends StatelessWidget {
 }
 
 class ASayfasi extends StatelessWidget {
-  String baslik = "B Sayfası";
+  //String baslik = "B Sayfası";
 
   @override
   Widget build(BuildContext context) {
@@ -92,12 +122,7 @@ class ASayfasi extends StatelessWidget {
               child: Text("A Sayfası"),
               color: Colors.yellow,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BSayfasi(baslik),
-                  ),
-                );
+                Navigator.pushNamed(context,"/BPage");
               },
             )
           ],
@@ -108,16 +133,17 @@ class ASayfasi extends StatelessWidget {
 }
 
 class BSayfasi extends StatelessWidget {
-  String GelenVeri;
+  //String GelenVeri;
 
-  BSayfasi(this.GelenVeri);
+  //BSayfasi(this.GelenVeri);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          GelenVeri,
+          //GelenVeri,
+          "B Sayfasi",
           style: TextStyle(color: Colors.orange, fontSize: 24),
         ),
       ),
@@ -126,15 +152,10 @@ class BSayfasi extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RaisedButton(
-              child: Text(GelenVeri),
+              child: Text("B Sayfasi"),
               color: Colors.green,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => NavigasyonIslemleri(),
-                  ),
-                );
+                Navigator.pushNamed(context,"/CPage");
               },
             )
           ],
@@ -171,12 +192,7 @@ class CSayfasi extends StatelessWidget {
               child: Text("A Sayfasına Git"),
               color: Colors.yellow,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ASayfasi(),
-                  ),
-                );
+                Navigator.pushNamed(context,"/DPage");
               },
             ),
           ],
@@ -215,7 +231,7 @@ class DSayfasi extends StatelessWidget {
                 child: Text("D Sayfası"),
                 color: Colors.yellow,
                 onPressed: () {
-                  Navigator.pop(context, true);
+                  Navigator.pop<bool>(context, true);
                   //true demek ürün silindi
                   //false ürün silinmedi veya kullanıcı vazgeçti
                 },
@@ -227,3 +243,104 @@ class DSayfasi extends StatelessWidget {
     );
   }
 }
+
+class ESayfasi extends StatelessWidget {
+  String baslik = "B Sayfası";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "E Sayfası",
+          style: TextStyle(color: Colors.black, fontSize: 24),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RaisedButton(
+              child: Text("E Sayfası"),
+              color: Colors.yellow,
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => FSayfasi()),
+                );
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class FSayfasi extends StatelessWidget {
+  String baslik = "B Sayfası";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "F Sayfası",
+          style: TextStyle(color: Colors.black, fontSize: 24),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RaisedButton(
+              child: Text("F Sayfası"),
+              color: Colors.yellow,
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => GSayfasi()),
+                );
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class GSayfasi extends StatelessWidget {
+  String baslik = "B Sayfası";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "G Sayfası",
+          style: TextStyle(color: Colors.black, fontSize: 24),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RaisedButton(
+              child: Text("G Sayfası"),
+              color: Colors.yellow,
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => NavigasyonIslemleri()),
+                );
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
