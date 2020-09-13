@@ -12,100 +12,112 @@ class NavigasyonIslemleri extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RaisedButton(
-              child: Text("AnaSayfa"),
-              color: Colors.blue,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ASayfasi(),
-                  ),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text("B Sayfası"),
-              color: Colors.grey,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BSayfasi(),
-                  ),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text("C Sayfasına Git ve Geri Gel"),
-              color: Colors.redAccent,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CSayfasi(),
-                  ),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text("Geri Dön ve Veri Gönder"),
-              color: Colors.purple,
-              onPressed: () {
-                Navigator.push<bool>(
-                  context,
-                  MaterialPageRoute(builder: (context) => DSayfasi()),
-                ).then((popOlayindanSonraGelenSati) {
-                  debugPrint(
-                      "Pop İşleminden Gelen Değer $popOlayindanSonraGelenSati");
-                });
-              },
-            ),
-            RaisedButton(
-              child: Text("Geri Dön ve Geri Gelme"),
-              color: Colors.blueGrey,
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => ESayfasi()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text("Geri Dön ve Geri Gelme2"),
-              color: Colors.blueGrey,
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => FSayfasi()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text("Geri Dön ve Geri Gelme3"),
-              color: Colors.blueGrey,
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => GSayfasi()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text("Liste sayfasına Gidelim"),
-              color: Colors.blueGrey,
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  "/listeSayfasi",
-                );
-              },
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RaisedButton(
+                child: Text("AnaSayfa"),
+                color: Colors.blue,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ASayfasi(),
+                    ),
+                  );
+                },
+              ),
+              RaisedButton(
+                child: Text("B Sayfası"),
+                color: Colors.grey,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BSayfasi(),
+                    ),
+                  );
+                },
+              ),
+              RaisedButton(
+                child: Text("C Sayfasına Git ve Geri Gel"),
+                color: Colors.redAccent,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CSayfasi(),
+                    ),
+                  );
+                },
+              ),
+              RaisedButton(
+                child: Text("Geri Dön ve Veri Gönder"),
+                color: Colors.purple,
+                onPressed: () {
+                  Navigator.push<bool>(
+                    context,
+                    MaterialPageRoute(builder: (context) => DSayfasi()),
+                  ).then((popOlayindanSonraGelenSati) {
+                    debugPrint(
+                        "Pop İşleminden Gelen Değer $popOlayindanSonraGelenSati");
+                  });
+                },
+              ),
+              RaisedButton(
+                child: Text("Geri Dön ve Geri Gelme"),
+                color: Colors.blueGrey,
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => ESayfasi()),
+                  );
+                },
+              ),
+              RaisedButton(
+                child: Text("Geri Dön ve Geri Gelme2"),
+                color: Colors.blueGrey,
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => FSayfasi()),
+                  );
+                },
+              ),
+              RaisedButton(
+                child: Text("Geri Dön ve Geri Gelme3"),
+                color: Colors.blueGrey,
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => GSayfasi()),
+                  );
+                },
+              ),
+              RaisedButton(
+                child: Text("Liste sayfasına Gidelim"),
+                color: Colors.blueGrey,
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    "/listeSayfasi",
+                  );
+                },
+              ),
+              RaisedButton(
+                child: Text("Form Islemlerine Git"),
+                color: Colors.yellowAccent.shade100,
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    "/formIslemleri",
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

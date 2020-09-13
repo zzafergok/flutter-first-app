@@ -1,3 +1,4 @@
+import 'package:first_app/ui/form_islemleri.dart';
 import 'package:flutter/material.dart';
 import 'ui/navigasyon_islemleri.dart';
 
@@ -15,6 +16,7 @@ void main() {
       "CPage/DPage": (context) => DSayfasi(),
       "/CPage/DPage/EPage": (context) => ESayfasi(),
       "/listeSayfasi": (context) => ListeSayfasi(),
+      "/formIslemleri": (context) => FormIslemleri(),
     },
 
     onGenerateRoute: (RouteSettings settings){
