@@ -1,10 +1,13 @@
-import 'package:first_app/ui/form_islemleri.dart';
+import 'package:first_app/ui/form_textFormField.dart';
+import 'package:first_app/ui/text_Field_Features.dart';
 import 'package:flutter/material.dart';
 import 'ui/navigasyon_islemleri.dart';
 
 void main() {
   runApp(MaterialApp(
-    //initialRoute: "/CPage/DPage/EPage",
+
+    initialRoute: "/textFormField",
+
     routes: {
       "/": (context) => NavigasyonIslemleri(),
       "/BPage": (context) => BSayfasi(),
@@ -16,7 +19,8 @@ void main() {
       "CPage/DPage": (context) => DSayfasi(),
       "/CPage/DPage/EPage": (context) => ESayfasi(),
       "/listeSayfasi": (context) => ListeSayfasi(),
-      "/formIslemleri": (context) => FormIslemleri(),
+      "/textField": (context) => TextFieldProcess(),
+      "/textFormField": (context) => FormandTextFormField(),
     },
 
     onGenerateRoute: (RouteSettings settings){

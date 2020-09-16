@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class FormIslemleri extends StatefulWidget {
+class TextFieldProcess extends StatefulWidget {
   @override
-  _FormIslemleriState createState() => _FormIslemleriState();
+  _TextFieldProcessState createState() => _TextFieldProcessState();
 }
 
-class _FormIslemleriState extends State<FormIslemleri> {
+class _TextFieldProcessState extends State<TextFieldProcess> {
   String gelenDeger = "";
-
   FocusNode _fNode;
   int maxLine = 1;
+  TextEditingController textController;
 
   @override
   void initState() {
@@ -20,18 +20,20 @@ class _FormIslemleriState extends State<FormIslemleri> {
     //daha sonra initstate içinde setstate vererek burada da maxline'ımızı genişlettik(yazarken daha rahat yazmakiçin).
     _fNode.addListener(() {
       setState(() {
-        if(_fNode.hasFocus){
-          maxLine=3;
-        }else{
-          maxLine=1;
+        if (_fNode.hasFocus) {
+          maxLine = 3;
+        } else {
+          maxLine = 1;
         }
       });
     });
+    textController = TextEditingController(text: "varsayılan");
   }
 
   @override
   void dispose() {
     _fNode.dispose();
+    textController.dispose();
     super.dispose();
   }
 
@@ -41,11 +43,47 @@ class _FormIslemleriState extends State<FormIslemleri> {
       appBar: AppBar(
         title: Text("Form Islemleri"),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          FocusScope.of(context).requestFocus(_fNode);
-        },
-        child: Icon(Icons.edit),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Container(height: 24,width: 24,
+
+            child: FloatingActionButton(
+              heroTag: "aa",
+              onPressed: () {
+                FocusScope.of(context).requestFocus(_fNode);
+              },
+              child: Icon(Icons.edit,size: 14,color: Colors.black45,),
+              mini: true,
+            ),
+          ),
+
+          SizedBox(
+            height: 10,
+          ),
+
+          FloatingActionButton(
+            heroTag: "ab",
+            onPressed: () {
+              textController.text=("hi, i came");
+            },
+            child: Icon(Icons.offline_pin,color: Colors.blueGrey.shade600,),
+            mini: true,
+          ),
+
+          SizedBox(
+            height: 10,
+          ),
+
+          FloatingActionButton(
+            heroTag: "ac",
+            onPressed: () {
+              FocusScope.of(context).requestFocus(_fNode);
+            },
+            child: Icon(Icons.bookmark),
+          ),
+        ],
       ),
       body: ListView(
         children: [
@@ -57,6 +95,7 @@ class _FormIslemleriState extends State<FormIslemleri> {
               textInputAction: TextInputAction.done,
               autofocus: false,
               focusNode: _fNode,
+              controller: textController,
               maxLines: maxLine,
               decoration: InputDecoration(
                   hintText: "Notunuzu Buraya Giriniz",
