@@ -120,7 +120,8 @@ class _FormandTextFormFieldState extends State<FormandTextFormField> {
   void _girisBilgileriniOnayla() {
     if(formKey.currentState.validate()){
       formKey.currentState.save();
-      debugPrint("Girilen Ad-Soyad: $_adSoyad \n Girilen Email: $_email \n Girilen Şifre: $_sifre");
+      //debugPrint("Girilen Ad-Soyad: $_adSoyad \n Girilen Email: $_email \n Girilen Şifre: $_sifre");
+      return _showDialog();
     }else{
       setState(() {
         otomatikKontrol=true;
@@ -144,5 +145,27 @@ class _FormandTextFormFieldState extends State<FormandTextFormField> {
       return 'Isim numara içermemeli';
     else
       return null;
+  }
+  void _showDialog() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Hoşgeldiniz $_adSoyad"),
+          //content: new Text("Alert Dialog body"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
