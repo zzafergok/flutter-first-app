@@ -6,25 +6,36 @@ class FormandTextFormField extends StatefulWidget {
 }
 
 class _FormandTextFormFieldState extends State<FormandTextFormField> {
+  String _adSoyad, _email, _sifre;
+  bool otomatikKontrol = false;
+
+  final formKey=GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
-        accentColor: Colors.redAccent,
-        primaryColorBrightness: Brightness.light,
-        hintColor: Colors.pink,
-      ),
+          accentColor: Colors.orange,
+          hintColor: Colors.blueAccent,
+          primaryColor: Colors.green),
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: (){},
-          child: Icon(Icons.save),),
+          onPressed: () {},
+          child: Icon(Icons.save),
+        ),
         appBar: AppBar(
-          title: Text("Form and TextFormField"),),
+          title: Text("Form and TextFormField"),
+        ),
         body: Padding(
           padding: EdgeInsets.all(20),
           child: Form(
+            key: formKey,
+            autovalidate: otomatikKontrol ,
             child: ListView(
               children: [
+                SizedBox(
+                  height: 10,
+                ),
                 TextFormField(
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.account_circle),
@@ -32,8 +43,21 @@ class _FormandTextFormFieldState extends State<FormandTextFormField> {
                     labelText: "Ad Soyad",
                     border: OutlineInputBorder(),
                   ),
+                  //başlangıçta hangi değerin gözükmesini istiyorsan onun için bunu kullanabilirsin. Silinebilir türden bir yapı
+                  //initialValue: "zafer",
+                  validator: _adSoyadOnayla,
+                  /*(String girilenVeri) {
+                    if (girilenVeri.length < 6) {
+                      return "Lütfen adınızı soyadınız tam giriniz";
+                    } else {
+                      return null;
+                    }
+                  },*/
+                  onSaved: (deger) => _adSoyad=deger,
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -41,10 +65,21 @@ class _FormandTextFormFieldState extends State<FormandTextFormField> {
                     hintText: "Email Adresiniz",
                     labelText: "Email",
                     border: OutlineInputBorder(),
-                     //enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
+                    //enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
                   ),
+                  validator: _emailKontrol,
+                  /*(String girilenVeri) {
+                    if(girilenVeri.contains("@") != true){
+                      return "email adresi geçersiz";
+                    }else{
+                      return null;
+                    }
+                  },*/
+                  onSaved: (deger) => _email=deger,
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 TextFormField(
                   keyboardType: TextInputType.text,
                   obscureText: true,
@@ -55,10 +90,20 @@ class _FormandTextFormFieldState extends State<FormandTextFormField> {
                     border: OutlineInputBorder(),
                     //enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
                   ),
+                  validator: (String girilenVeri) {
+                    if(girilenVeri.length < 6){
+                      return "parolanız 6 karakterden fazla olması gerekiyor";
+                    }else{
+                      return null;
+                    }
+                  },
+                  onSaved: (deger) => _sifre=deger,
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 RaisedButton.icon(
-                  onPressed: (){},
+                  onPressed: _girisBilgileriniOnayla,
                   icon: Icon(Icons.save),
                   label: Text("Kaydet"),
                   disabledColor: Colors.blueGrey,
@@ -70,5 +115,34 @@ class _FormandTextFormFieldState extends State<FormandTextFormField> {
         ),
       ),
     );
+  }
+
+  void _girisBilgileriniOnayla() {
+    if(formKey.currentState.validate()){
+      formKey.currentState.save();
+      debugPrint("Girilen Ad-Soyad: $_adSoyad \n Girilen Email: $_email \n Girilen Şifre: $_sifre");
+    }else{
+      setState(() {
+        otomatikKontrol=true;
+      });
+    }
+  }
+
+  String _emailKontrol(String mail) {
+    Pattern pattern =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regex = new RegExp(pattern);
+    if (!regex.hasMatch(mail))
+      return 'Geçersiz mail';
+    else
+      return null;
+  }
+
+  String _adSoyadOnayla(String name){
+    RegExp regex=RegExp("^[a-zA-Z]+\$");
+    if (!regex.hasMatch(name))
+      return 'Isim numara içermemeli';
+    else
+      return null;
   }
 }
