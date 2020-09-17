@@ -125,7 +125,17 @@ class NavigasyonIslemleri extends StatelessWidget {
                     "/textFormField",
                   );
                 },
-              )
+              ),
+              RaisedButton(
+                child: Text("Other Form Process"),
+                color: Colors.yellowAccent.shade400,
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    "/otherForm",
+                  );
+                },
+              ),
             ],
           ),
         ),
