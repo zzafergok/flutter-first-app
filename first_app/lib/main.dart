@@ -2,13 +2,14 @@ import 'package:first_app/ui/date_clock_example.dart';
 import 'package:first_app/ui/form_textFormField.dart';
 import 'package:first_app/ui/other_form_process..dart';
 import 'package:first_app/ui/text_Field_Features.dart';
+import 'package:first_app/ui/using_stepper.dart';
 import 'package:flutter/material.dart';
 import 'ui/navigasyon_islemleri.dart';
 
 void main() {
   runApp(MaterialApp(
 
-    initialRoute: "/dateClock",
+    initialRoute: "/ornekStepper",
 
     routes: {
       "/": (context) => NavigasyonIslemleri(),
@@ -25,6 +26,7 @@ void main() {
       "/textFormField": (context) => FormandTextFormField(),
       "/otherForm": (context) => OtherFormProcess(),
       "/dateClock": (context) => DateClockExample(),
+      "/ornekStepper": (context) => UsingStepper(),
     },
 
     onGenerateRoute: (RouteSettings settings){

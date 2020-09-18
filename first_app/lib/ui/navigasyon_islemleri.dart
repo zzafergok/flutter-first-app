@@ -146,6 +146,16 @@ class NavigasyonIslemleri extends StatelessWidget {
                   );
                 },
               ),
+              RaisedButton(
+                child: Text("Using Stepper"),
+                color: Colors.yellowAccent.shade200,
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    "/ornekStepper",
+                  );
+                },
+              ),
             ],
           ),
         ),
