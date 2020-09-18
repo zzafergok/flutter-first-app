@@ -1,3 +1,4 @@
+import 'package:first_app/ui/date_clock_example.dart';
 import 'package:first_app/ui/form_textFormField.dart';
 import 'package:first_app/ui/other_form_process..dart';
 import 'package:first_app/ui/text_Field_Features.dart';
@@ -7,7 +8,7 @@ import 'ui/navigasyon_islemleri.dart';
 void main() {
   runApp(MaterialApp(
 
-    initialRoute: "/otherForm",
+    initialRoute: "/dateClock",
 
     routes: {
       "/": (context) => NavigasyonIslemleri(),
@@ -23,6 +24,7 @@ void main() {
       "/textField": (context) => TextFieldProcess(),
       "/textFormField": (context) => FormandTextFormField(),
       "/otherForm": (context) => OtherFormProcess(),
+      "/dateClock": (context) => DateClockExample(),
     },
 
     onGenerateRoute: (RouteSettings settings){

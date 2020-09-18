@@ -136,6 +136,16 @@ class NavigasyonIslemleri extends StatelessWidget {
                   );
                 },
               ),
+              RaisedButton(
+                child: Text("Date Clock Example"),
+                color: Colors.yellowAccent.shade700,
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    "/dateClock",
+                  );
+                },
+              ),
             ],
           ),
         ),
