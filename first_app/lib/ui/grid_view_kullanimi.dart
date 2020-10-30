@@ -28,7 +28,6 @@ class GridViewOrnek extends StatelessWidget {
               shape: BoxShape.circle,
               color: Colors.orange[100 * ((index + 1) % 8)],
               gradient: LinearGradient(
-                colors: [Colors.orange, Colors.blue],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),

@@ -88,7 +88,6 @@ class ResimveButton extends StatelessWidget {
                     children: <Widget>[
                       FlutterLogo(
                         size: 60,
-                        colors: Colors.orange,
                         style: FlutterLogoStyle.horizontal,
                         textColor: Colors.black,
                       ),

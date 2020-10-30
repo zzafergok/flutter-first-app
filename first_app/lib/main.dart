@@ -9,7 +9,7 @@ import 'ui/navigasyon_islemleri.dart';
 void main() {
   runApp(MaterialApp(
 
-    initialRoute: "/ornekStepper",
+    initialRoute: "/UsingStepper",
 
     routes: {
       "/": (context) => NavigasyonIslemleri(),
